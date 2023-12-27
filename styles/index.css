@@ -1,0 +1,147 @@
+:root {
+  --shadow-clr: rgba(30, 30, 30, 0.4);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 0 5px var(--shadow-clr);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.icon-container {
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.icon-container i {
+  font-size: 1.5rem;
+}
+
+.search-container {
+  display: flex;
+  border: 1px solid rgb(200, 200, 200);
+  flex: 1;
+  max-width: 300px;
+  padding: 0.5rem;
+  column-gap: 0.5rem;
+  margin-left: auto;
+  margin-right: 1.5rem;
+  border-radius: 2px;
+}
+
+header a {
+  color: var(--primary-color);
+}
+
+.search-container input {
+  border: none;
+  width: 0;
+  flex: 1;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+section {
+  flex: 1;
+  max-width: 500px;
+  box-shadow: 0 0 4px var(--shadow-clr);
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.6rem;
+  padding: 1.5rem;
+  border-radius: 4px;
+}
+
+section h1 {
+  font-size: 30px;
+  color: var(--primary-color);
+}
+
+section form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.9rem;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.2rem;
+}
+
+.input-container input,
+textarea {
+  padding: 0.5rem;
+  border: none;
+  background-color: whitesmoke;
+  border-radius: 2px;
+  resize: none;
+}
+
+.input-container label::after {
+  content: "*";
+  color: var(--primary-color);
+  margin-left: 2px;
+}
+
+.input-container label {
+  font-size: 14px;
+}
+
+section form button[type="submit"] {
+  background-color: var(--cs-green);
+  padding: 0.6rem;
+  font-weight: 700;
+  border-radius: 2px;
+  margin-top: 1rem;
+  color: #ffff;
+}
+
+.error-message,
+.create-success {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-color);
+  color: white;
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  padding: 0.8rem;
+  font-size: 14px;
+  row-gap: 5px;
+  border-radius: 5px;
+}
+
+.create-success {
+  flex-direction: row;
+  align-items: center;
+  column-gap: 0.4rem;
+  background-color: var(--cs-green);
+  animation: toast 1s ease-out;
+  animation-delay: 2s;
+}
+
+@keyframes toast {
+  75% {
+    transform: translateX(400px);
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
