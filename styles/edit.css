@@ -1,4 +1,4 @@
-h2 {
+h1 {
   color: var(--primary-color);
 }
 
@@ -7,6 +7,43 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  flex: 1;
+  max-width: 500px;
+  row-gap: 1.5rem;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+form .input-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.3rem;
+}
+
+.input-container input,
+textarea {
+  border: 1px solid rgba(100, 100, 100, 0.4);
+  padding: 0.8rem 1rem;
+  resize: none;
+  border-radius: 2px;
+}
+
+button[type="submit"] {
+  background-color: var(--primary-color);
+  padding: 0.8rem 1rem;
+  font-weight: 700;
+  color: #ffffef;
+  border-radius: 2px;
 }
 
 .error {
@@ -18,4 +55,38 @@ h2 {
 
 .error a {
   color: var(--primary-color);
+}
+
+.error-message {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cs-red);
+  color: white;
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  padding: 0.8rem;
+  font-size: 14px;
+  row-gap: 5px;
+  border-radius: 5px;
+}
+
+.hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.hd a {
+  color: var(--primary-color);
+}
+
+.success {
+  position: fixed;
+  background-color: var(--cs-green);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  top: 20px;
+  right: 20px;
 }

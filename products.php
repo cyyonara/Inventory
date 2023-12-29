@@ -10,7 +10,7 @@ try {
   $limit = 10;
   $offset = ($page - 1) * $limit;
 
-  // Get products
+  // Fetch products
   $query = "SELECT * FROM products LIMIT :limit OFFSET :offset;";
   $stmt = $pdo->prepare($query);
   $stmt->bindParam(":limit", $limit, PDO::PARAM_INT);
@@ -18,13 +18,16 @@ try {
   $stmt->execute();
   $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-  // Get the total number of products
   $query = "SELECT COUNT(id) FROM products;";
   $countStmt = $pdo->prepare($query);
   $countStmt->execute();
   $productCount = $countStmt->fetchColumn();
   $totalPages = ceil($productCount / $limit);
   $hasNextPage = $page < $totalPages;
+
+  $stmt = null;
+  $countStmt = null;
+  $pdo = null;
 } catch (PDOException $e) {
   die("Database Error: " . $e->getMessage());
 }
@@ -64,11 +67,12 @@ $nextPage = $hasNextPage ? $page + 1 : $page;
               <td class="td"><?php echo $row["description"]; ?> </td>
               <td class="td"><?php echo $row["quantity"]; ?></td>
               <td class="action-container">
-                <button class="action-button view">View</button>
                 <a href="edit.php?id=<?php echo $row["id"]; ?>">
                   <button class="action-button edit">Edit</button>
                 </a>
-                <button class="action-button delete">Delete</button>
+                <a href="delete.php?id=<?php echo $row["id"]; ?>">
+                  <button class="action-button delete">Delete</button>
+                </a>
               </td>
             </tr>
           <?php } ?>

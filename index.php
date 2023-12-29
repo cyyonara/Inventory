@@ -1,5 +1,4 @@
 <?php session_start(); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +16,6 @@ $create_data = isset($_SESSION["create_data"]) ? $_SESSION["create_data"] : [
   "description" => "",
   "quantity" => 1
 ];
-
 ?>
 
 <body>
@@ -26,9 +24,9 @@ $create_data = isset($_SESSION["create_data"]) ? $_SESSION["create_data"] : [
       <i class="fa-solid fa-code"></i>
       <h2>Amogus Inventory</h2>
     </div>
-    <form class="search-container">
+    <form action="search.php" method="get" class="search-container">
       <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" placeholder="Search product...">
+      <input type="text" placeholder="Search product..." name="keyword">
     </form>
     <a href="products.php"><i class="fa-solid fa-shop"></i></a>
   </header>
@@ -38,7 +36,7 @@ $create_data = isset($_SESSION["create_data"]) ? $_SESSION["create_data"] : [
 
     echo "<div class='error-message'>";
     foreach ($errors as $error) {
-      echo "<p> &#183 " . $error . "</p>";
+      echo "<p> &#183; " . $error . "</p>";
     }
     echo "</div>";
   }
